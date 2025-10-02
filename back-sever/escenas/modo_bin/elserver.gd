@@ -95,10 +95,10 @@ func string_to_packedbytearray(identifier_str: String) -> PackedByteArray:
 	var packed_identifier = PackedByteArray()
 
 	# Rellenar el string con espacios si es menor a 16 caracteres
-	if identifier_str.length() < 16:
+	if identifier_str.length() <= 15:
 		var spaces_to_add = 16 - identifier_str.length()
 		identifier_str += " ".repeat(spaces_to_add) # Genera los espacios necesarios usando repeat()
-	else:
+	elif identifier_str.length() > 16:
 		prints("error el strin muy largo")
 		return PackedByteArray([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 	# Procesa cada carácter del string rellenado como un byte
